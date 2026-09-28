@@ -1,0 +1,2867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Why Recovery Reflection</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f8;
+    color: #1f2937;
+}
+
+header {
+    background: #17365d;
+    color: white;
+    padding: 22px 30px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 25px;
+}
+
+header p {
+    margin: 7px 0 0;
+    opacity: .9;
+}
+
+nav {
+    background: white;
+    border-bottom: 1px solid #ddd;
+    padding: 12px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+nav button {
+    margin: 0;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 25px auto;
+    padding: 0 20px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0,0,0,.04);
+}
+
+h2 {
+    margin-top: 0;
+    color: #17365d;
+}
+
+h3 {
+    color: #24527a;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 6px;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.checkbox-grid label {
+    font-weight: normal;
+    margin: 0;
+    padding: 9px;
+    background: #f7f8fa;
+    border-radius: 5px;
+}
+
+.checkbox-grid input {
+    width: auto;
+    margin-right: 7px;
+}
+
+button {
+    background: #24527a;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 11px 17px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    opacity: .9;
+}
+
+.secondary {
+    background: #6b7280;
+}
+
+.danger {
+    background: #b42318;
+}
+
+.success {
+    background: #ecfdf3;
+    color: #027a48;
+    padding: 12px;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+
+.warning {
+    background: #fff7ed;
+    color: #9a3412;
+    padding: 14px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.info {
+    background: #eff6ff;
+    color: #1d4ed8;
+    padding: 14px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+.step {
+    display: none;
+}
+
+.step.active {
+    display: block;
+}
+
+.progress {
+    height: 8px;
+    background: #ddd;
+    border-radius: 10px;
+    margin: 25px 0;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 16.6%;
+    background: #24527a;
+    border-radius: 10px;
+    transition: width .2s;
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.nav-buttons button {
+    min-width: 100px;
+}
+
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 15px;
+}
+
+.kpi {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.kpi-value {
+    font-size: 30px;
+    font-weight: bold;
+    color: #17365d;
+}
+
+.kpi-label {
+    color: #666;
+    margin-top: 5px;
+}
+
+.bar {
+    margin: 10px 0;
+}
+
+.bar-label {
+    margin-bottom: 4px;
+}
+
+.bar-track {
+    background: #e5e7eb;
+    height: 26px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    background: #24527a;
+    color: white;
+    text-align: right;
+    padding: 4px 8px;
+    min-width: 25px;
+}
+
+.timeline {
+    border-left: 4px solid #24527a;
+    padding-left: 20px;
+}
+
+.timeline-item {
+    background: #f8fafc;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 7px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background: #f3f4f6;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.small {
+    font-size: 12px;
+    color: #666;
+}
+
+.status {
+    font-size: 13px;
+    color: #555;
+    margin-left: 10px;
+}
+
+@media(max-width:700px) {
+    .container {
+        padding: 10px;
+    }
+
+    header {
+        padding: 18px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .nav-buttons {
+        flex-direction: column;
+    }
+
+    .nav-buttons button {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<h1>My “Why” Recovery Reflection</h1>
+
+<p>A Conversation Between Us — This Decision Is Yours</p>
+
+</header>
+
+
+<nav>
+
+<button onclick="showPage('worksheet')">
+ASA Worksheet
+</button>
+
+<button onclick="showPage('history')">
+Patient History
+</button>
+
+<button onclick="showPage('dashboard')">
+QI Dashboard
+</button>
+
+<button onclick="showPage('outcome')">
+Outcome Tracking
+</button>
+
+<button onclick="saveDraft()">
+Save Draft
+</button>
+
+<button onclick="resumeDraft()">
+Resume Draft
+</button>
+
+<button onclick="exportCSV()">
+Export Test Data
+</button>
+
+<button onclick="document.getElementById('csvFile').click()">
+Import Test Data
+</button>
+
+<input
+    type="file"
+    id="csvFile"
+    accept=".csv"
+    style="display:none"
+    onchange="importCSV(event)"
+>
+
+</nav>
+
+
+<!-- ========================= -->
+<!-- WORKSHEET -->
+<!-- ========================= -->
+
+<div id="worksheet" class="container">
+
+<div class="info">
+
+<strong>Purpose:</strong>
+This conversation is grounded in Motivational Interviewing — a partnership,
+not a lecture. You are the expert on your own life. Our job is to listen,
+understand what matters to you, and support whatever you decide. There's
+no wrong answer here — just an honest look, together, before anything
+is final.
+
+</div>
+
+
+<div class="card">
+
+<h2>Client Information</h2>
+
+<label>Client ID</label>
+
+<input
+id="clientId"
+placeholder="Example: TEST-001"
+>
+
+<label>Date</label>
+
+<input
+id="eventDate"
+type="date"
+>
+
+<label>Staff Assisting</label>
+
+<input
+id="staffName"
+>
+
+<div class="progress">
+
+<div
+id="progressBar"
+class="progress-bar">
+</div>
+
+</div>
+
+<div class="small">
+Step <span id="stepNumber">1</span> of 6
+</div>
+
+</div>
+
+
+<!-- STEP 1 -->
+
+<div class="step active card">
+
+<h2>Part 1: What Am I Feeling Right Now?</h2>
+
+<p>
+There's no right or wrong answer here — you know best.
+Select whatever fits, or use your own words below.
+</p>
+
+<div class="checkbox-grid">
+
+<label><input type="checkbox" name="feelings" value="Angry">Angry</label>
+
+<label><input type="checkbox" name="feelings" value="Anxious">Anxious</label>
+
+<label><input type="checkbox" name="feelings" value="Scared">Scared</label>
+
+<label><input type="checkbox" name="feelings" value="Homesick">Homesick</label>
+
+<label><input type="checkbox" name="feelings" value="Embarrassed">Embarrassed</label>
+
+<label><input type="checkbox" name="feelings" value="Ashamed">Ashamed</label>
+
+<label><input type="checkbox" name="feelings" value="Restless">Restless</label>
+
+<label><input type="checkbox" name="feelings" value="Lonely">Lonely</label>
+
+<label><input type="checkbox" name="feelings" value="Overwhelmed">Overwhelmed</label>
+
+<label><input type="checkbox" name="feelings" value="Irritated">Irritated</label>
+
+<label><input type="checkbox" name="feelings" value="Sad">Sad</label>
+
+<label><input type="checkbox" name="feelings" value="Numb">Numb</label>
+
+<label><input type="checkbox" name="feelings" value="Confused">Confused</label>
+
+<label><input type="checkbox" name="feelings" value="Hopeless">Hopeless</label>
+
+</div>
+
+<label>Other</label>
+
+<input id="feelingOther">
+
+<label>
+In your own words, what happened today that has you thinking about leaving?
+</label>
+
+<textarea id="whatHappened"></textarea>
+
+<div class="nav-buttons">
+
+<span></span>
+
+<button onclick="nextStep()">Next</button>
+
+</div>
+
+</div>
+
+
+<!-- STEP 2 -->
+
+<div class="step card">
+
+<h2>Part 2: Looking Back Together</h2>
+
+<label>
+Has there been a time before when you left care early?
+</label>
+
+<select id="everLeftASA">
+
+<option value="">Select</option>
+
+<option>Yes</option>
+
+<option>No</option>
+
+</select>
+
+<label>
+Thinking back to a time you left treatment, detox, probation,
+or recovery support early — what happened next, in your own words?
+</label>
+
+<textarea id="pastExperience"></textarea>
+
+<label>
+Looking back now, how do you see it — did things get better, worse,
+or stay about the same?
+</label>
+
+<select id="pastOutcome">
+
+<option value="">Select</option>
+
+<option>Better</option>
+
+<option>Worse</option>
+
+<option>Stayed the same</option>
+
+<option>Unsure</option>
+
+</select>
+
+<div class="nav-buttons">
+
+<button onclick="previousStep()">Back</button>
+
+<button onclick="nextStep()">Next</button>
+
+</div>
+
+</div>
+
+
+<!-- STEP 3 -->
+
+<div class="step card">
+
+<h2>Part 3: My “Why”</h2>
+
+<p>
+What brought you here in the first place? What matters enough
+to you that you took this step?
+</p>
+
+<div class="checkbox-grid">
+
+<label><input type="checkbox" name="why" value="Family">My family</label>
+
+<label><input type="checkbox" name="why" value="Children">My children</label>
+
+<label><input type="checkbox" name="why" value="Health">My health</label>
+
+<label><input type="checkbox" name="why" value="Mental health">My mental health</label>
+
+<label><input type="checkbox" name="why" value="Legal issues">Legal issues</label>
+
+<label><input type="checkbox" name="why" value="Probation/parole">Probation/parole</label>
+
+<label><input type="checkbox" name="why" value="Fear of overdose">Fear of overdose</label>
+
+<label><input type="checkbox" name="why" value="Tired of suffering">Tired of suffering</label>
+
+<label><input type="checkbox" name="why" value="Housing instability">Housing instability</label>
+
+<label><input type="checkbox" name="why" value="Relationships">Relationships</label>
+
+<label><input type="checkbox" name="why" value="Employment">Employment</label>
+
+<label><input type="checkbox" name="why" value="I want peace">I want peace</label>
+
+<label><input type="checkbox" name="why" value="I want my life back">I want my life back</label>
+
+<label><input type="checkbox" name="why" value="I want to heal">I want to heal</label>
+
+</div>
+
+<label>Other</label>
+
+<input id="whyOther">
+
+<label>
+Who in your life might be affected by your decision today?
+</label>
+
+<textarea id="affectedPeople"></textarea>
+
+<label>
+What's one thing you still want for your future — a reason
+worth holding on to?
+</label>
+
+<textarea id="futureGoal"></textarea>
+
+<div class="nav-buttons">
+
+<button onclick="previousStep()">Back</button>
+
+<button onclick="nextStep()">Next</button>
+
+</div>
+
+</div>
+
+
+<!-- STEP 4 -->
+
+<div class="step card">
+
+<h2>Part 4: Slowing Down the Urge</h2>
+
+<label>
+What do you think might happen if you stay one more day?
+</label>
+
+<textarea id="stayOneDay"></textarea>
+
+<label>
+What do you think might happen if you leave today?
+</label>
+
+<textarea id="leaveToday"></textarea>
+
+<label>
+Is there something going on right now that we could work through together?
+</label>
+
+<div class="checkbox-grid">
+
+<label><input type="checkbox" name="problem" value="Withdrawal symptoms">Withdrawal symptoms</label>
+
+<label><input type="checkbox" name="problem" value="Anxiety/panic">Anxiety/panic</label>
+
+<label><input type="checkbox" name="problem" value="Phone/home concerns">Phone/home concerns</label>
+
+<label><input type="checkbox" name="problem" value="Conflict with another client">Conflict with another client</label>
+
+<label><input type="checkbox" name="problem" value="Sleep issues">Sleep issues</label>
+
+<label><input type="checkbox" name="problem" value="Cravings">Cravings</label>
+
+<label><input type="checkbox" name="problem" value="Missing family">Missing family</label>
+
+<label><input type="checkbox" name="problem" value="Wanting nicotine/smoke break">Wanting nicotine/smoke break</label>
+
+<label><input type="checkbox" name="problem" value="Feeling trapped">Feeling trapped</label>
+
+<label><input type="checkbox" name="problem" value="Transportation concerns">Transportation concerns</label>
+
+<label><input type="checkbox" name="problem" value="Legal concerns">Legal concerns</label>
+
+</div>
+
+<label>Other</label>
+
+<input id="problemOther">
+
+<label>
+What do you need right now that isn't being met?
+</label>
+
+<textarea id="needsNotMet"></textarea>
+
+<div class="nav-buttons">
+
+<button onclick="previousStep()">Back</button>
+
+<button onclick="nextStep()">Next</button>
+
+</div>
+
+</div>
+
+
+<!-- STEP 5 -->
+
+<div class="step card">
+
+<h2>Part 5: My Recovery Goals for the Next 30 Days</h2>
+
+<div class="checkbox-grid">
+
+<label><input type="checkbox" name="goal" value="Clear mind">Clear mind</label>
+
+<label><input type="checkbox" name="goal" value="Sobriety">Sobriety</label>
+
+<label><input type="checkbox" name="goal" value="Better coping skills">Better coping skills</label>
+
+<label><input type="checkbox" name="goal" value="Emotional stability">Emotional stability</label>
+
+<label><input type="checkbox" name="goal" value="Support system">Support system</label>
+
+<label><input type="checkbox" name="goal" value="Housing plan">Housing plan</label>
+
+<label><input type="checkbox" name="goal" value="Employment plan">Employment plan</label>
+
+<label><input type="checkbox" name="goal" value="Family repair">Family repair</label>
+
+<label><input type="checkbox" name="goal" value="Relapse prevention skills">Relapse prevention skills</label>
+
+<label><input type="checkbox" name="goal" value="Medication stability">Medication stability</label>
+
+<label><input type="checkbox" name="goal" value="Hope">Hope</label>
+
+<label><input type="checkbox" name="goal" value="Self-respect">Self-respect</label>
+
+<label><input type="checkbox" name="goal" value="Spiritual growth">Spiritual growth</label>
+
+<label><input type="checkbox" name="goal" value="Better physical health">Better physical health</label>
+
+</div>
+
+<label>Other</label>
+
+<input id="goalOther">
+
+<label>
+One goal I can focus on TODAY only:
+</label>
+
+<textarea id="todayGoal"></textarea>
+
+<label>
+What's one reason you might choose to give yourself the next 24 hours?
+</label>
+
+<textarea id="reason24"></textarea>
+
+<div class="nav-buttons">
+
+<button onclick="previousStep()">Back</button>
+
+<button onclick="nextStep()">Next</button>
+
+</div>
+
+</div>
+
+
+<!-- STEP 6 -->
+
+<div class="step card">
+
+<h2>Part 6: My Support Plan</h2>
+
+<div class="checkbox-grid">
+
+<label><input type="checkbox" name="support" value="BHA Staff">BHA Staff</label>
+
+<label><input type="checkbox" name="support" value="Counselor">Counselor</label>
+
+<label><input type="checkbox" name="support" value="Nurse">Nurse</label>
+
+<label><input type="checkbox" name="support" value="Peer Recovery Specialist">Peer Recovery Specialist</label>
+
+<label><input type="checkbox" name="support" value="Family Member">Family Member</label>
+
+<label><input type="checkbox" name="support" value="Sponsor">Sponsor</label>
+
+<label><input type="checkbox" name="support" value="Therapist">Therapist</label>
+
+<label><input type="checkbox" name="support" value="Spiritual Support">Spiritual Support</label>
+
+</div>
+
+<label>Other</label>
+
+<input id="supportOther">
+
+<div class="success">
+It takes honesty to sit with this and talk it through. Whatever you
+decide, that matters.
+</div>
+
+<h3>Final Reflection</h3>
+
+<textarea id="finalReflection"></textarea>
+
+<label>Right now, after slowing down and processing, I feel:</label>
+
+<textarea id="currentFeeling"></textarea>
+
+<label>My decision at this moment is:</label>
+
+<select id="decision">
+
+<option value="">Select</option>
+
+<option>Stay for today and revisit tomorrow</option>
+
+<option>Speak with staff before deciding</option>
+
+<option>Continue treatment</option>
+
+<option>I still want to leave</option>
+
+</select>
+
+<label>Intervention Result</label>
+
+<select id="interventionResult">
+
+<option value="">Select</option>
+
+<option>Stayed 24 hours</option>
+
+<option>Left treatment</option>
+
+<option>Still undecided</option>
+
+<option>Transferred</option>
+
+<option>Unknown</option>
+
+</select>
+
+<label>Final Disposition</label>
+
+<select id="finalDisposition">
+
+<option value="">Select</option>
+
+<option>Continued treatment</option>
+
+<option>ASA</option>
+
+<option>Transferred</option>
+
+<option>Unknown</option>
+
+</select>
+
+<label>Client Signature</label>
+
+<input id="clientSignature">
+
+<label>Staff Signature</label>
+
+<input id="staffSignature">
+
+<label>Time Completed</label>
+
+<input id="timeCompleted" type="time">
+
+<div class="nav-buttons">
+
+<button onclick="previousStep()">Back</button>
+
+<button onclick="saveEvent()">Save ASA Event</button>
+
+</div>
+
+<div id="saveMessage"></div>
+
+</div>
+
+</div>
+
+
+<!-- ========================= -->
+<!-- PATIENT HISTORY -->
+<!-- ========================= -->
+
+<div id="history" class="container hidden">
+
+<div class="card">
+
+<h2>Patient ASA History</h2>
+
+<label>Client ID</label>
+
+<input
+id="historyClient"
+placeholder="Example: TEST-001"
+>
+
+<button onclick="loadHistory()">
+View History
+</button>
+
+</div>
+
+<div id="historyResults"></div>
+
+</div>
+
+
+<!-- ========================= -->
+<!-- OUTCOME TRACKING -->
+<!-- ========================= -->
+
+<div id="outcome" class="container hidden">
+
+<div class="card">
+
+<h2>Outcome Tracking</h2>
+
+<label>Client ID</label>
+
+<input
+id="outcomeClient"
+placeholder="Example: TEST-001"
+>
+
+<label>Outcome</label>
+
+<select id="outcomeStatus">
+
+<option>Stayed in treatment</option>
+
+<option>Left treatment</option>
+
+<option>Returned to treatment</option>
+
+<option>Transferred</option>
+
+<option>Discharged successfully</option>
+
+<option>Unknown</option>
+
+</select>
+
+<label>Follow-up period</label>
+
+<select id="outcomePeriod">
+
+<option>24 hours</option>
+
+<option>48 hours</option>
+
+<option>72 hours</option>
+
+<option>Discharge</option>
+
+<option>Follow-up</option>
+
+</select>
+
+<label>Notes</label>
+
+<textarea id="outcomeNotes"></textarea>
+
+<button onclick="saveOutcome()">
+Save Outcome
+</button>
+
+<div id="outcomeMessage"></div>
+
+</div>
+
+</div>
+
+
+<!-- ========================= -->
+<!-- QI DASHBOARD -->
+<!-- ========================= -->
+
+<div id="dashboard" class="container hidden">
+
+<div class="card">
+
+<h2>QI Dashboard</h2>
+
+<p>
+Aggregate Recovery Reflection / ASA statistics
+</p>
+
+<p class="small">
+This dashboard is based on local test data only.
+</p>
+
+</div>
+
+
+<div class="kpi-grid">
+
+<div class="kpi">
+
+<div id="totalEvents" class="kpi-value">
+0
+</div>
+
+<div class="kpi-label">
+Total ASA Events
+</div>
+
+</div>
+
+
+<div class="kpi">
+
+<div id="stayRate" class="kpi-value">
+0%
+</div>
+
+<div class="kpi-label">
+Initial Retention
+</div>
+
+</div>
+
+
+<div class="kpi">
+
+<div id="asaRate" class="kpi-value">
+0%
+</div>
+
+<div class="kpi-label">
+Final ASA Rate
+</div>
+
+</div>
+
+
+<div class="kpi">
+
+<div id="twentyFourRate" class="kpi-value">
+0%
+</div>
+
+<div class="kpi-label">
+24-Hour Retention
+</div>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>Why Patients Came to Treatment</h2>
+
+<div id="whyChart"></div>
+
+</div>
+
+
+<div class="card">
+
+<h2>Reasons for Wanting to Leave</h2>
+
+<div id="problemChart"></div>
+
+</div>
+
+
+<div class="card">
+
+<h2>ASA Events by Month</h2>
+
+<div id="monthlyChart"></div>
+
+</div>
+
+
+<div class="card">
+
+<h2>Outcomes</h2>
+
+<div id="outcomeChart"></div>
+
+</div>
+
+
+<div class="card">
+
+<h2>Recent ASA Events</h2>
+
+<div class="table-wrapper">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Client ID</th>
+
+<th>Date</th>
+
+<th>Decision</th>
+
+<th>Disposition</th>
+
+</tr>
+
+</thead>
+
+<tbody id="eventTable"></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<button
+class="danger"
+onclick="clearAllData()"
+>
+Clear All Test Data
+</button>
+
+</div>
+
+</div>
+
+
+<script>
+
+let currentStep = 0;
+
+const steps =
+document.querySelectorAll(".step");
+
+
+/* =========================
+PAGE NAVIGATION
+========================= */
+
+function showPage(page) {
+
+document.querySelectorAll(".container")
+.forEach(
+el => el.classList.add("hidden")
+);
+
+document.getElementById(page)
+.classList.remove("hidden");
+
+
+if(page === "dashboard") {
+
+updateDashboard();
+
+}
+
+}
+
+
+/* =========================
+WORKSHEET STEPS
+========================= */
+
+function updateStep() {
+
+steps.forEach(
+(step, index) => {
+
+step.classList.toggle(
+"active",
+index === currentStep
+);
+
+});
+
+
+document.getElementById(
+"progressBar"
+).style.width =
+((currentStep + 1) / 6 * 100) + "%";
+
+
+document.getElementById(
+"stepNumber"
+).innerText =
+currentStep + 1;
+
+
+window.scrollTo({
+top: 0,
+behavior: "smooth"
+});
+
+}
+
+
+function nextStep() {
+
+if(currentStep < 5) {
+
+currentStep++;
+
+updateStep();
+
+}
+
+}
+
+
+function previousStep() {
+
+if(currentStep > 0) {
+
+currentStep--;
+
+updateStep();
+
+}
+
+}
+
+
+/* =========================
+FORM HELPERS
+========================= */
+
+function checked(name) {
+
+return [
+...document.querySelectorAll(
+`input[name="${name}"]:checked`
+)
+].map(
+el => el.value
+);
+
+}
+
+
+function value(id) {
+
+const element =
+document.getElementById(id);
+
+return element ?
+element.value :
+"";
+
+}
+
+
+function setCheckboxes(
+name,
+values
+) {
+
+values = values || [];
+
+
+document
+.querySelectorAll(
+`input[name="${name}"]`
+)
+.forEach(
+checkbox => {
+
+checkbox.checked =
+values.includes(
+checkbox.value
+);
+
+}
+);
+
+}
+
+
+/* =========================
+COLLECT FORM
+========================= */
+
+function collectFormData() {
+
+return {
+
+clientId:
+value("clientId"),
+
+eventDate:
+value("eventDate"),
+
+staff:
+value("staffName"),
+
+feelings:
+checked("feelings"),
+
+feelingOther:
+value("feelingOther"),
+
+whatHappened:
+value("whatHappened"),
+
+everLeftASA:
+value("everLeftASA"),
+
+pastExperience:
+value("pastExperience"),
+
+pastOutcome:
+value("pastOutcome"),
+
+why:
+checked("why"),
+
+whyOther:
+value("whyOther"),
+
+affectedPeople:
+value("affectedPeople"),
+
+futureGoal:
+value("futureGoal"),
+
+stayOneDay:
+value("stayOneDay"),
+
+leaveToday:
+value("leaveToday"),
+
+problems:
+checked("problem"),
+
+problemOther:
+value("problemOther"),
+
+needsNotMet:
+value("needsNotMet"),
+
+goals:
+checked("goal"),
+
+goalOther:
+value("goalOther"),
+
+todayGoal:
+value("todayGoal"),
+
+reason24:
+value("reason24"),
+
+support:
+checked("support"),
+
+supportOther:
+value("supportOther"),
+
+finalReflection:
+value("finalReflection"),
+
+currentFeeling:
+value("currentFeeling"),
+
+decision:
+value("decision"),
+
+interventionResult:
+value("interventionResult"),
+
+finalDisposition:
+value("finalDisposition"),
+
+clientSignature:
+value("clientSignature"),
+
+staffSignature:
+value("staffSignature"),
+
+timeCompleted:
+value("timeCompleted")
+
+};
+
+}
+
+
+/* =========================
+SAVE DRAFT
+========================= */
+
+function saveDraft() {
+
+const draft = {
+
+savedAt:
+new Date().toISOString(),
+
+currentStep:
+currentStep,
+
+data:
+collectFormData()
+
+};
+
+
+localStorage.setItem(
+"asaDraft",
+JSON.stringify(draft)
+);
+
+
+alert(
+"Draft saved on this computer."
+);
+
+}
+
+
+/* =========================
+RESUME DRAFT
+========================= */
+
+function resumeDraft() {
+
+const saved =
+localStorage.getItem(
+"asaDraft"
+);
+
+
+if(!saved) {
+
+alert(
+"No saved draft was found."
+);
+
+return;
+
+}
+
+
+const draft =
+JSON.parse(saved);
+
+const data =
+draft.data;
+
+
+showPage("worksheet");
+
+
+document.getElementById("clientId").value =
+data.clientId || "";
+
+document.getElementById("eventDate").value =
+data.eventDate || "";
+
+document.getElementById("staffName").value =
+data.staff || "";
+
+setCheckboxes(
+"feelings",
+data.feelings
+);
+
+document.getElementById("feelingOther").value =
+data.feelingOther || "";
+
+document.getElementById("whatHappened").value =
+data.whatHappened || "";
+
+document.getElementById("everLeftASA").value =
+data.everLeftASA || "";
+
+document.getElementById("pastExperience").value =
+data.pastExperience || "";
+
+document.getElementById("pastOutcome").value =
+data.pastOutcome || "";
+
+setCheckboxes(
+"why",
+data.why
+);
+
+document.getElementById("whyOther").value =
+data.whyOther || "";
+
+document.getElementById("affectedPeople").value =
+data.affectedPeople || "";
+
+document.getElementById("futureGoal").value =
+data.futureGoal || "";
+
+document.getElementById("stayOneDay").value =
+data.stayOneDay || "";
+
+document.getElementById("leaveToday").value =
+data.leaveToday || "";
+
+setCheckboxes(
+"problem",
+data.problems
+);
+
+document.getElementById("problemOther").value =
+data.problemOther || "";
+
+document.getElementById("needsNotMet").value =
+data.needsNotMet || "";
+
+setCheckboxes(
+"goal",
+data.goals
+);
+
+document.getElementById("goalOther").value =
+data.goalOther || "";
+
+document.getElementById("todayGoal").value =
+data.todayGoal || "";
+
+document.getElementById("reason24").value =
+data.reason24 || "";
+
+setCheckboxes(
+"support",
+data.support
+);
+
+document.getElementById("supportOther").value =
+data.supportOther || "";
+
+document.getElementById("finalReflection").value =
+data.finalReflection || "";
+
+document.getElementById("currentFeeling").value =
+data.currentFeeling || "";
+
+document.getElementById("decision").value =
+data.decision || "";
+
+document.getElementById("interventionResult").value =
+data.interventionResult || "";
+
+document.getElementById("finalDisposition").value =
+data.finalDisposition || "";
+
+document.getElementById("clientSignature").value =
+data.clientSignature || "";
+
+document.getElementById("staffSignature").value =
+data.staffSignature || "";
+
+document.getElementById("timeCompleted").value =
+data.timeCompleted || "";
+
+
+currentStep =
+draft.currentStep || 0;
+
+
+updateStep();
+
+
+alert(
+"Draft restored."
+);
+
+}
+
+
+/* =========================
+AUTO SAVE
+========================= */
+
+setInterval(
+function() {
+
+if(
+!document
+.getElementById("worksheet")
+.classList
+.contains("hidden")
+) {
+
+const draft = {
+
+savedAt:
+new Date().toISOString(),
+
+currentStep:
+currentStep,
+
+data:
+collectFormData()
+
+};
+
+
+localStorage.setItem(
+"asaDraft",
+JSON.stringify(draft)
+);
+
+}
+
+},
+30000
+);
+
+
+/* =========================
+SAVE ASA EVENT
+========================= */
+
+function saveEvent() {
+
+const clientId =
+value("clientId");
+
+
+if(!clientId) {
+
+alert(
+"Please enter a Client ID."
+);
+
+return;
+
+}
+
+
+const event = {
+
+id:
+Date.now(),
+
+clientId:
+clientId,
+
+date:
+value("eventDate") ||
+new Date()
+.toISOString()
+.substring(0,10),
+
+staff:
+value("staffName"),
+
+feelings:
+checked("feelings"),
+
+feelingOther:
+value("feelingOther"),
+
+whatHappened:
+value("whatHappened"),
+
+everLeftASA:
+value("everLeftASA"),
+
+pastExperience:
+value("pastExperience"),
+
+pastOutcome:
+value("pastOutcome"),
+
+why:
+checked("why"),
+
+whyOther:
+value("whyOther"),
+
+affectedPeople:
+value("affectedPeople"),
+
+futureGoal:
+value("futureGoal"),
+
+stayOneDay:
+value("stayOneDay"),
+
+leaveToday:
+value("leaveToday"),
+
+problems:
+checked("problem"),
+
+problemOther:
+value("problemOther"),
+
+needsNotMet:
+value("needsNotMet"),
+
+goals:
+checked("goal"),
+
+goalOther:
+value("goalOther"),
+
+todayGoal:
+value("todayGoal"),
+
+reason24:
+value("reason24"),
+
+support:
+checked("support"),
+
+supportOther:
+value("supportOther"),
+
+finalReflection:
+value("finalReflection"),
+
+currentFeeling:
+value("currentFeeling"),
+
+decision:
+value("decision"),
+
+interventionResult:
+value("interventionResult"),
+
+finalDisposition:
+value("finalDisposition"),
+
+clientSignature:
+value("clientSignature"),
+
+staffSignature:
+value("staffSignature"),
+
+timeCompleted:
+value("timeCompleted"),
+
+outcomes: []
+
+};
+
+
+const events =
+JSON.parse(
+localStorage.getItem(
+"asaEvents"
+) || "[]"
+);
+
+
+events.push(event);
+
+
+localStorage.setItem(
+"asaEvents",
+JSON.stringify(events)
+);
+
+
+/* Delete completed draft */
+
+localStorage.removeItem(
+"asaDraft"
+);
+
+
+document.getElementById(
+"saveMessage"
+).innerHTML =
+
+`<div class="success">
+<strong>ASA Event saved successfully.</strong><br>
+Test Event ID: ${event.id}
+</div>`;
+
+
+alert(
+"ASA event saved."
+);
+
+}
+
+
+/* =========================
+PATIENT HISTORY
+========================= */
+
+function loadHistory() {
+
+const client =
+value("historyClient");
+
+
+const events =
+JSON.parse(
+localStorage.getItem(
+"asaEvents"
+) || "[]"
+);
+
+
+const outcomes =
+JSON.parse(
+localStorage.getItem(
+"asaOutcomes"
+) || "[]"
+);
+
+
+const matches =
+events.filter(
+e => e.clientId === client
+);
+
+
+const container =
+document.getElementById(
+"historyResults"
+);
+
+
+if(!matches.length) {
+
+container.innerHTML =
+
+`<div class="card">
+No ASA history found for this Client ID.
+</div>`;
+
+return;
+
+}
+
+
+const clientOutcomes =
+outcomes.filter(
+o => o.clientId === client
+);
+
+
+container.innerHTML =
+
+`<div class="card">
+
+<h2>${client} Timeline</h2>
+
+<div class="timeline">
+
+${matches.map(
+e => `
+
+<div class="timeline-item">
+
+<strong>Date:</strong>
+${e.date}
+
+<br><br>
+
+<strong>Decision:</strong>
+${e.decision || "Not documented"}
+
+<br>
+
+<strong>Final Disposition:</strong>
+${e.finalDisposition || "Not documented"}
+
+<br>
+
+<strong>Intervention Result:</strong>
+${e.interventionResult || "Not documented"}
+
+<br>
+
+<strong>Why:</strong>
+${[
+...(e.why || []),
+e.whyOther
+].filter(Boolean).join(", ") || "None documented"}
+
+<br>
+
+<strong>Problems:</strong>
+${[
+...(e.problems || []),
+e.problemOther
+].filter(Boolean).join(", ") || "None documented"}
+
+</div>
+
+`
+).join("")}
+
+</div>
+
+${clientOutcomes.length ? `
+
+<h3>Follow-up Outcomes</h3>
+
+${clientOutcomes.map(
+o => `
+
+<div class="timeline-item">
+
+<strong>
+${o.date}
+</strong>
+
+<br>
+
+${o.period}
+
+<br>
+
+<strong>
+${o.status}
+</strong>
+
+<br><br>
+
+${o.notes || ""}
+
+</div>
+
+`
+).join("")}
+
+` : ""}
+
+</div>`;
+
+}
+
+
+/* =========================
+SAVE OUTCOME
+========================= */
+
+function saveOutcome() {
+
+const client =
+value("outcomeClient");
+
+
+if(!client) {
+
+alert(
+"Enter a Client ID."
+);
+
+return;
+
+}
+
+
+const outcome = {
+
+id:
+Date.now(),
+
+clientId:
+client,
+
+status:
+value("outcomeStatus"),
+
+period:
+value("outcomePeriod"),
+
+notes:
+value("outcomeNotes"),
+
+date:
+new Date()
+.toISOString()
+.substring(0,10)
+
+};
+
+
+const outcomes =
+JSON.parse(
+localStorage.getItem(
+"asaOutcomes"
+) || "[]"
+);
+
+
+outcomes.push(outcome);
+
+
+localStorage.setItem(
+"asaOutcomes",
+JSON.stringify(outcomes)
+);
+
+
+document.getElementById(
+"outcomeMessage"
+).innerHTML =
+
+`<div class="success">
+Outcome saved successfully.
+</div>`;
+
+
+document.getElementById(
+"outcomeNotes"
+).value = "";
+
+}
+
+
+/* =========================
+DASHBOARD
+========================= */
+
+function updateDashboard() {
+
+const events =
+JSON.parse(
+localStorage.getItem(
+"asaEvents"
+) || "[]"
+);
+
+
+const outcomes =
+JSON.parse(
+localStorage.getItem(
+"asaOutcomes"
+) || "[]"
+);
+
+
+const total =
+events.length;
+
+
+document.getElementById(
+"totalEvents"
+).innerText =
+total;
+
+
+const stayed =
+events.filter(
+e =>
+e.decision ===
+"Stay for today and revisit tomorrow"
+||
+e.decision ===
+"Continue treatment"
+).length;
+
+
+const asa =
+events.filter(
+e =>
+e.finalDisposition ===
+"ASA"
+).length;
+
+
+const retained24 =
+outcomes.filter(
+o =>
+o.period === "24 hours"
+&&
+o.status ===
+"Stayed in treatment"
+).length;
+
+
+document.getElementById(
+"stayRate"
+).innerText =
+total ?
+Math.round(
+stayed / total * 100
+) + "%"
+:
+"0%";
+
+
+document.getElementById(
+"asaRate"
+).innerText =
+total ?
+Math.round(
+asa / total * 100
+) + "%"
+:
+"0%";
+
+
+document.getElementById(
+"twentyFourRate"
+).innerText =
+total ?
+Math.round(
+retained24 / total * 100
+) + "%"
+:
+"0%";
+
+
+buildWhyChart(events);
+
+buildProblemChart(events);
+
+buildMonthlyChart(events);
+
+buildOutcomeChart(outcomes);
+
+buildEventTable(events);
+
+}
+
+
+/* =========================
+WHY CHART
+========================= */
+
+function buildWhyChart(events) {
+
+const counts = {};
+
+
+events.forEach(
+e => {
+
+const reasons = [
+...(e.why || []),
+e.whyOther
+].filter(Boolean);
+
+
+reasons.forEach(
+reason => {
+
+counts[reason] =
+(counts[reason] || 0) + 1;
+
+});
+
+});
+
+
+buildBars(
+"whyChart",
+counts
+);
+
+}
+
+
+/* =========================
+PROBLEM CHART
+========================= */
+
+function buildProblemChart(events) {
+
+const counts = {};
+
+
+events.forEach(
+e => {
+
+const problems = [
+...(e.problems || []),
+e.problemOther
+].filter(Boolean);
+
+
+problems.forEach(
+problem => {
+
+counts[problem] =
+(counts[problem] || 0) + 1;
+
+});
+
+});
+
+
+buildBars(
+"problemChart",
+counts
+);
+
+}
+
+
+/* =========================
+BAR BUILDER
+========================= */
+
+function buildBars(
+elementId,
+counts
+) {
+
+const sorted =
+Object.entries(counts)
+.sort(
+(a,b) => b[1] - a[1]
+);
+
+
+const max =
+sorted.length ?
+sorted[0][1] :
+1;
+
+
+document.getElementById(
+elementId
+).innerHTML =
+
+sorted.map(
+item => `
+
+<div class="bar">
+
+<div class="bar-label">
+${item[0]} (${item[1]})
+</div>
+
+<div class="bar-track">
+
+<div
+class="bar-fill"
+style="width:${item[1]/max*100}%">
+
+${item[1]}
+
+</div>
+
+</div>
+
+</div>
+
+`
+).join("") ||
+"<p>No data yet.</p>";
+
+}
+
+
+/* =========================
+MONTHLY CHART
+========================= */
+
+function buildMonthlyChart(events) {
+
+const counts = {};
+
+
+events.forEach(
+e => {
+
+if(!e.date)
+return;
+
+
+const month =
+e.date.substring(0,7);
+
+
+counts[month] =
+(counts[month] || 0) + 1;
+
+});
+
+
+buildBars(
+"monthlyChart",
+counts
+);
+
+}
+
+
+/* =========================
+OUTCOME CHART
+========================= */
+
+function buildOutcomeChart(outcomes) {
+
+const counts = {};
+
+
+outcomes.forEach(
+o => {
+
+counts[o.status] =
+(counts[o.status] || 0) + 1;
+
+});
+
+
+buildBars(
+"outcomeChart",
+counts
+);
+
+}
+
+
+/* =========================
+EVENT TABLE
+========================= */
+
+function buildEventTable(events) {
+
+const table =
+document.getElementById(
+"eventTable"
+);
+
+
+if(!events.length) {
+
+table.innerHTML =
+`<tr>
+<td colspan="4">
+No test events recorded.
+</td>
+</tr>`;
+
+return;
+
+}
+
+
+table.innerHTML =
+events
+.slice()
+.reverse()
+.map(
+e => `
+
+<tr>
+
+<td>
+${escapeHTML(e.clientId)}
+</td>
+
+<td>
+${escapeHTML(e.date)}
+</td>
+
+<td>
+${escapeHTML(e.decision || "")}
+</td>
+
+<td>
+${escapeHTML(e.finalDisposition || "")}
+</td>
+
+</tr>
+
+`
+).join("");
+
+}
+
+
+/* =========================
+ESCAPE HTML
+========================= */
+
+function escapeHTML(value) {
+
+if(value === null ||
+value === undefined)
+return "";
+
+
+return String(value)
+.replace(/&/g, "&amp;")
+.replace(/</g, "&lt;")
+.replace(/>/g, "&gt;")
+.replace(/"/g, "&quot;")
+.replace(/'/g, "&#039;");
+
+}
+
+
+/* =========================
+CSV EXPORT
+========================= */
+
+function csvEscape(value) {
+
+if(
+value === null ||
+value === undefined
+) {
+
+return "";
+
+}
+
+
+value = String(value);
+
+
+if(
+value.includes(",") ||
+value.includes('"') ||
+value.includes("\n")
+) {
+
+return '"' +
+value.replace(
+/"/g,
+'""'
+) +
+'"';
+
+}
+
+
+return value;
+
+}
+
+
+function exportCSV() {
+
+const events =
+JSON.parse(
+localStorage.getItem(
+"asaEvents"
+) || "[]"
+);
+
+
+if(!events.length) {
+
+alert(
+"There is no test data to export."
+);
+
+return;
+
+}
+
+
+const headers = [
+
+"Client ID",
+"Date",
+"Staff",
+"Feelings",
+"Why Factors",
+"Problems",
+"Goals",
+"Decision",
+"Intervention Result",
+"Final Disposition",
+"Final Reflection",
+"Ever Left ASA Before",
+"Needs Not Met"
+
+];
+
+
+const rows =
+events.map(
+e => [
+
+e.clientId,
+
+e.date,
+
+e.staff,
+
+(e.feelings || [])
+.join("; "),
+
+[
+...(e.why || []),
+e.whyOther
+].filter(Boolean)
+.join("; "),
+
+[
+...(e.problems || []),
+e.problemOther
+].filter(Boolean)
+.join("; "),
+
+[
+...(e.goals || []),
+e.goalOther
+].filter(Boolean)
+.join("; "),
+
+e.decision,
+
+e.interventionResult,
+
+e.finalDisposition,
+
+e.finalReflection,
+
+e.everLeftASA,
+
+e.needsNotMet
+
+].map(csvEscape)
+);
+
+
+const csv = [
+
+headers
+.map(csvEscape)
+.join(","),
+
+...rows.map(
+row => row.join(",")
+)
+
+].join("\n");
+
+
+const blob =
+new Blob(
+[csv],
+{
+type:
+"text/csv;charset=utf-8;"
+}
+);
+
+
+const url =
+URL.createObjectURL(blob);
+
+
+const link =
+document.createElement("a");
+
+
+link.href = url;
+
+
+link.download =
+"ASA_TEST_DATA.csv";
+
+
+document.body.appendChild(link);
+
+link.click();
+
+document.body.removeChild(link);
+
+
+URL.revokeObjectURL(url);
+
+}
+
+
+/* =========================
+CSV PARSER
+========================= */
+
+function parseCSVLine(line) {
+
+const result = [];
+
+let current = "";
+
+let insideQuotes = false;
+
+
+for(
+let i = 0;
+i < line.length;
+i++
+) {
+
+const char =
+line[i];
+
+
+if(char === '"') {
+
+if(
+insideQuotes &&
+line[i + 1] === '"'
+) {
+
+current += '"';
+
+i++;
+
+} else {
+
+insideQuotes =
+!insideQuotes;
+
+}
+
+}
+
+else if(
+char === "," &&
+!insideQuotes
+) {
+
+result.push(current);
+
+current = "";
+
+}
+
+else {
+
+current += char;
+
+}
+
+}
+
+
+result.push(current);
+
+
+return result;
+
+}
+
+
+/* =========================
+CSV IMPORT
+========================= */
+
+function importCSV(event) {
+
+const file =
+event.target.files[0];
+
+
+if(!file)
+return;
+
+
+const reader =
+new FileReader();
+
+
+reader.onload =
+function(e) {
+
+const text =
+e.target.result;
+
+
+const lines =
+text.trim()
+.split(/\r?\n/);
+
+
+if(lines.length < 2) {
+
+alert(
+"CSV contains no data."
+);
+
+return;
+
+}
+
+
+const imported = [];
+
+
+for(
+let i = 1;
+i < lines.length;
+i++
+) {
+
+const row =
+parseCSVLine(
+lines[i]
+);
+
+
+if(!row.length)
+continue;
+
+
+imported.push({
+
+id:
+Date.now() + i,
+
+clientId:
+row[0] || "",
+
+date:
+row[1] || "",
+
+staff:
+row[2] || "",
+
+feelings:
+row[3]
+?
+row[3].split("; ")
+: [],
+
+why:
+row[4]
+?
+row[4].split("; ")
+: [],
+
+problems:
+row[5]
+?
+row[5].split("; ")
+: [],
+
+goals:
+row[6]
+?
+row[6].split("; ")
+: [],
+
+decision:
+row[7] || "",
+
+interventionResult:
+row[8] || "",
+
+finalDisposition:
+row[9] || "",
+
+finalReflection:
+row[10] || "",
+
+everLeftASA:
+row[11] || "",
+
+needsNotMet:
+row[12] || "",
+
+outcomes: []
+
+});
+
+}
+
+
+const existing =
+JSON.parse(
+localStorage.getItem(
+"asaEvents"
+) || "[]"
+);
+
+
+const combined =
+existing.concat(imported);
+
+
+localStorage.setItem(
+"asaEvents",
+JSON.stringify(combined)
+);
+
+
+alert(
+imported.length +
+" test records imported."
+);
+
+
+event.target.value = "";
+
+
+updateDashboard();
+
+};
+
+
+/* Read selected CSV */
+
+reader.readAsText(file);
+
+}
+
+
+/* =========================
+CLEAR DATA
+========================= */
+
+function clearAllData() {
+
+const confirmation =
+confirm(
+"Delete ALL test data from this browser?"
+);
+
+
+if(!confirmation)
+return;
+
+
+localStorage.removeItem(
+"asaEvents"
+);
+
+localStorage.removeItem(
+"asaOutcomes"
+);
+
+localStorage.removeItem(
+"asaDraft"
+);
+
+
+updateDashboard();
+
+
+alert(
+"All test data has been deleted."
+);
+
+}
+
+
+/* =========================
+INITIALIZE
+========================= */
+
+document.getElementById(
+"eventDate"
+).value =
+new Date()
+.toISOString()
+.substring(0,10);
+
+
+document.getElementById(
+"timeCompleted"
+).value =
+new Date()
+.toTimeString()
+.substring(0,5);
+
+
+updateStep();
+
+</script>
+
+</body>
+</html>
